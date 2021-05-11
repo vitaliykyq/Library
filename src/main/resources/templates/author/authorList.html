@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Authors List</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+    <div style="position: absolute; left: 50%; transform: translate(-50%, 0)">
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Birth</th>
+                    <th>Death</th>
+                    <th>CreatedAt</th>
+                    <th>ModifiedAt</th>
+                    <th class="options" colspan="2">OPTIONS</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr th:each="author: ${authors}">
+                <td th:text="${author.id}">id</td>
+                <td th:text="${author.name}">Person</td>
+                <td th:text="${author.birth}">Group</td>
+                <td th:text="${author.death}">Course</td>
+                <td th:text="${author.created_at}">created_at</td>
+                <td th:text="${author.modified_at}">modified_at</td>
+                <td>
+                    <a th:href="@{/ui/author/delete/{id}(id=${author.id})}">
+                        <button class="btn delBtn" style="transition: 0.5s; padding: 0">Delete</button>
+                    </a>
+                    <a th:href="@{/ui/author/showUpdateForm/{id}(id=${author.id})}">
+                        <button class="btn uppBtn" style="transition: 0.5s; padding: 0">Update</button>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <a th:href = "@{/ui/author/showNewForm}">
+            <button class="btn addBtn" style="transition: 0.5s; padding: 0">
+                <img src="http://pngimg.com/uploads/notebook/notebook_PNG19198.png" width="60">
+            </button>
+        </a>
+    </div>
+</body>
+</html>
