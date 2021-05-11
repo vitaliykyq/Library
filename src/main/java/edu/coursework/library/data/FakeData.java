@@ -42,6 +42,8 @@ public class FakeData {
                     new Author("9", "Vitaliy", "2020",
                             "2020", "Ukraine"),
                     new Author("10", "Vitaliy", "2020",
+                            "2020", "Ukraine"),
+                    new Author("11", "Vitaliy", "2020",
                             "2020", "Ukraine")));
 
     private List<Book> bookList = new ArrayList<>(
