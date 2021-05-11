@@ -1,0 +1,225 @@
+html{
+    background-image: url("https://i.pinimg.com/originals/0e/f5/9f/0ef59f4a933c5860f8ac20f6d8b6ec22.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+
+table {
+    min-width: 1100px;
+    border: 2px #898b95 solid;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: -5px -5px 20px #fff, 5px 5px 20px #babecc;
+    background: rgba(107, 46, 4, 0.32);
+}
+
+th {
+    color: #aa6d09;
+    box-shadow: 5px 5px 20px #babecc;
+    background: white;
+    height: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.updateForm form {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: repeat(4, auto) 40px;
+    row-gap: 14px;
+    column-gap: 20px;
+}
+
+.updateForm form button {
+    margin-left: auto;
+    margin-right: auto;
+    grid-column: 1 / span 2;
+}
+
+.updateText {
+    font-size: 1.7em;
+    text-align: center;
+}
+
+body, html {
+    text-align: center;
+}
+
+body, p, input, select, textarea, button {
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: -0.2px;
+    font-size: 16px;
+}
+
+div, p {
+    color: #00072d;
+    text-shadow: 1px 1px 1px #e8e8e8;
+}
+
+form {
+    padding: 16px;
+    width: 320px;
+    margin: 0 auto;
+}
+
+.segment {
+    padding: 32px 0;
+    text-align: center;
+    margin-right: 700px;
+}
+
+a {
+    text-decoration: none;
+}
+
+button, input, select {
+    border: 0;
+    outline: 0;
+    font-size: 16px;
+    border-radius: 30px;
+    padding: 16px;
+    background-color: #bda68c;
+}
+
+form label {
+    display: block;
+    margin-top: 12px;
+    width: 100%;
+    font-size: 1.2em;
+    text-align: left;
+}
+
+input, select {
+    margin-right: 8px;
+    box-shadow: 2px 2px 5px #655222 inset, -5px -5px 10px #251405 inset;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
+    -webkit-appearance: none;
+}
+input:focus {
+    box-shadow: 1px 1px 2px #584107 inset, -1px -1px 2px #1c0e06 inset;
+}
+
+select:focus {
+    box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
+}
+
+button {
+    color: #61677c;
+    font-size: 0.9em;
+   /* box-shadow: -5px -5px 20px #bdb192, 5px 5px 20px #babecc; */
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    font-weight: 600;
+    margin: 10px 0 10px 0;
+    box-shadow: -3px 0 5px #402805, 2px 2px 5px #babecc;
+}
+
+button:hover {
+    box-shadow: none;
+}
+
+button:active {
+    box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
+}
+
+.updateBtn {
+    width: 100%;
+    height: 50px;
+    color: #ffffff;
+    background: rgb(62, 159, 70);
+    border-radius: 0;
+    text-shadow: none;
+    box-shadow: -3px -1px 5px #2e742b, 5px 4px 5px #132e08;
+}
+
+.delBtn {
+    width: 100px;
+    height: 40px;
+    color: #f6f6f6;
+    border-radius: 0;
+    background: rgb(212, 81, 30);
+    text-shadow: none;
+}
+
+.uppBtn {
+    width: 100px;
+    height: 40px;
+    color: #fafafa;
+    border-radius: 0;
+    background: rgb(32, 143, 65);
+    text-shadow: none;
+}
+
+.addBtn {
+    width: 65px;
+    height: 90px;
+    color: #0077ae;
+    background: rgb(88, 49, 0);
+    border-radius: 10px;
+    box-shadow: -5px -5px 20px #090202, 5px 5px 20px #440a0a;
+    border-radius: 10px;
+}
+
+.newBtn {
+    width: 100%;
+    height: 50px;
+    color: #135e0e;
+}
+
+.backBtn {
+    padding: 20px;
+    width: 200px;
+    height: 40px;
+    color: #ae1100;
+    border-radius: 0;
+}
+
+.btnDrop {
+    padding: 10px !important;
+    background: rgba(92, 64, 5, 0);
+    text-shadow: none;
+    box-shadow: 0 0 16px #402805, 2px 2px 5px #babecc;
+}
+
+.dropItem {
+    display: none;
+    width: auto;
+    height: auto;
+    background-color: rgba(69, 44, 44, 0.75);
+    padding: 30px;
+    transition: 0.3s;
+    border-radius: 25px;
+    border: 1px solid rgb(87, 77, 77);
+    box-shadow: -5px -5px 20px #4b3232, 5px 5px 20px #babecc;
+}
+
+.dropItem p{
+    color:white;
+    text-shadow: none;
+}
+
+.dropItem p:nth-child(2n - 1) {
+    color:white;
+    text-shadow: none;
+    font-weight: bold;
+    padding-right: 30px;
+}
+
+.btnDropItem {
+    grid-column: 1 / span 2;
+}
+
+.uppMenu {
+    display: none;
+}
+
+.checkBox:checked + .uppMenu {
+    left: 950px;
+    top: 50px;
+    position: absolute;
+    display: grid;
+}

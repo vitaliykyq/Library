@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Author</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+    <div class="segment">
+        <h1>UPDATE AUTHOR</h1>
+    </div>
+    <div class="updateForm" style="margin-bottom: 150px; margin-right: 700px;">
+        <form action="#" th:action="@{/ui/author/update}" th:object="${authors}"
+              method="POST">
+            <label for="num1">Id</label>
+            <input id="num1" type="number" readonly th:field="*{id}"/>
+            <label for="num2">Name</label>
+            <input id="num2" th:field="*{name}">
+            <label for="num3">Birth</label>
+            <input id="num3" th:field="*{birth}">
+            <label for="num4">Death</label>
+            <input id="num4" th:field="*{death}">
+            <label for="num5">Country</label>
+            <input id="num5" th:field="*{country}">
+            <button type="submit" class="updateBtn" style="transition: 0.5s; padding: 0; font-size: 0.8em">DONE</button>
+        </form>
+    </div>
+
+    <a th:href="@{/ui/author/get/all}" style = "margin-right: 1050px;">
+        <button class="backBtn" style="padding: 0">Back</button>
+    </a>
+</body>
+</html>
