@@ -1,11 +1,11 @@
 package edu.coursework.library.service.author.interfaces;
 
 /*
-    @author:    Vitaliy
-    @project:    Library
-    @class:    IBookService
+    @author:    Bogdan
+    @project:    Enterprises 
+    @class:    ICivilService 
     @version:    1.0.0 
-    @since:    14.04.2021     
+    @since:    15.04.2021     
 */
 
 import edu.coursework.library.model.Author;
@@ -18,6 +18,5 @@ public interface IAuthorService {
     Author create(Author author);
     Author update(Author author);
     Author delete(String id);
-    Author save(Author author);
     List<Author> getAll();
 }

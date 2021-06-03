@@ -3,15 +3,17 @@ package edu.coursework.library.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Document(collection = "author")
 public class Author {
-    
+    @Id
     private String id;
 
     private String name;
@@ -19,16 +21,7 @@ public class Author {
     private String death;
     private String country;
 
-    private LocalDateTime created_at;
-    private LocalDateTime modified_at;
+    private Date createdAt;
+    private Date modifiedAt;
     private String description;
-
-    public Author(String id, String name, String birth, String death, String country) {
-        this.id = id;
-        this.name = name;
-        this.birth = birth;
-        this.death = death;
-        this.country = country;
-        this.created_at = LocalDateTime.now();
-    }
 }

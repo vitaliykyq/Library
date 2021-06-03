@@ -1,58 +1,59 @@
 package edu.coursework.library.service.author.impls;
 
 /*
-    @author:    Vitaliy
-    @project:    Library
-    @class:    BookServiceImpl
-    @version:    1.0.0
-    @since:    14.04.2021
+    @author:    Bogdan
+    @project:    Enterprises 
+    @class:    CivilServiceImpl 
+    @version:    1.0.0 
+    @since:    15.04.2021     
 */
 
-import edu.coursework.library.dao.author.impls.AuthorDAOImpl;
-import edu.coursework.library.data.FakeData;
 import edu.coursework.library.model.Author;
+import edu.coursework.library.repository.AuthorRepository;
 import edu.coursework.library.service.author.interfaces.IAuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
 public class AuthorServiceImpl implements IAuthorService {
 
     @Autowired
-    FakeData fakeData;
-
-    @Autowired
-    AuthorDAOImpl dao;
+    AuthorRepository repository;
 
     @Override
     public Author getById(String id) {
-        return dao.getById(id);
+
+        return repository.findById(id).orElse(null);
     }
 
     @Override
     public Author create(Author author) {
-        return dao.create(author);
+        author.setCreatedAt(new Date());
+        return repository.save(author);
     }
 
     @Override
     public Author update(Author author) {
-        return dao.update(author);
+        author.setModifiedAt(new Date());
+        author.setCreatedAt(repository.findById(author.getId())
+                .orElse(null)
+                .getCreatedAt());
+        repository.save(author);
+        return author;
     }
 
     @Override
     public Author delete(String id) {
-        return dao.delete(id);
-    }
-
-    @Override
-    public Author save(Author author) {
+        repository.deleteById(id);
         return null;
     }
 
     @Override
     public List<Author> getAll() {
-        return dao.getAll();
+
+        return repository.findAll();
     }
 }

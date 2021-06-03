@@ -17,36 +17,36 @@ import java.util.List;
 
 /*http://localhost:8080/api/civil/get/all*/
 @RestController
-@RequestMapping("api/plane")
+@RequestMapping("api/book")
 public class BookRestController {
 
     @Autowired
-    BookServiceImpl service;
+    BookServiceImpl bookService;
 
     @GetMapping("/get/all")
     public List<Book> getPlane(){
-        return service.getAll() ;
+        return bookService.getAll() ;
     }
 
     @GetMapping("/get/{id}")
     public Book getById(@PathVariable("id") String id){
-        Book byId = service.getById(id);
+        Book byId = bookService.getById(id);
         return byId;
     }
 
     @GetMapping("/delete/{id}")
     public Book deleteById(@PathVariable("id") String id){
-        return service.delete(id);
+        return bookService.delete(id);
     }
 
     @PostMapping ("/create/")
     public Book create(@RequestBody Book book){
-        return service.create(book);
+        return bookService.create(book);
     }
 
     @PostMapping ("/update/")
     public Book update(@RequestBody Book book){
-        return service.update(book);
+        return bookService.update(book);
     }
 
 }

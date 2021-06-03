@@ -16,29 +16,29 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/services")
+@RequestMapping("api/person")
 public class PersonRestController {
 
-    /*@Autowired
-    PersonServiceImpl person;
+    @Autowired
+    PersonServiceImpl personService;
 
     @GetMapping("/get/all")
     public List<Person> getAdministrations(){
-        return person.getAll() ;
+        return personService.getAll() ;
     }
 
     @GetMapping("/get/{id}")
-    public Person getById(@PathVariable("id") String id){ return person.getById(id); }
+    public Person getById(@PathVariable("id") String id){ return personService.getById(id); }
 
     @GetMapping("/delete/{id}")
     public Person deleteById(@PathVariable("id") String id){
-        return person.delete(id);
+        return personService.delete(id);
     }
 
     @PostMapping("/create/")
-    public Person create(@RequestBody Person _person){ return person.create(_person); }
+    public Person create(@RequestBody Person person){ return personService.create(person); }
 
     @PostMapping ("/update/")
-    public Person update(@RequestBody Person _person){ return person.update(_person); }*/
+    public Person update(@RequestBody Person person){ return personService.update(person); }
 
 }

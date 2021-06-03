@@ -10,8 +10,10 @@ package edu.coursework.library.controller.ui;
 
 import edu.coursework.library.model.Author;
 import edu.coursework.library.model.Book;
+import edu.coursework.library.model.PublishingHouse;
 import edu.coursework.library.service.author.impls.AuthorServiceImpl;
 import edu.coursework.library.service.book.impls.BookServiceImpl;
+import edu.coursework.library.service.publishingHouse.impls.PublishingHouseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,33 +32,35 @@ public class BookUIController {
     @Autowired
     AuthorServiceImpl authorService;
 
+    @Autowired
+    PublishingHouseServiceImpl publishingHouseService;
+
     @RequestMapping("/get/all")
     public String showAll(Model model){
 
-        List<Book> books = bookService.getAll();
-        model.addAttribute("books", books);
+        List<Book> bookList = bookService.getAll();
+        model.addAttribute("bookList", bookList);
 
         return "book/bookList";
     }
 
-    @GetMapping("/showUpdateForm/{id}/{idAuthor}")
-    public String showUpdateForm(@PathVariable (value="id") String id,
-                                 @PathVariable (value="idAuthor") String idAuthor, Model model){
-        Author author = authorService.getById(idAuthor);
-        model.addAttribute("authors", author);
-
+    @GetMapping("/showUpdateForm/{id}")
+    public String showUpdateForm(@PathVariable (value="id") String id, Model model){
         Book book = bookService.getById(id);
-        model.addAttribute("books", book);
+        model.addAttribute("book", book);
+
+        List<Author> authorListId = authorService.getAll();
+        model.addAttribute("publishingHouseList", authorListId);
+
+        List<PublishingHouse> publishingHouseList = publishingHouseService.getAll();
+        model.addAttribute("publishingHouseList", publishingHouseList);
         return "book/updateBook";
     }
 
     @PostMapping("/update")
-    public String update(Model model,
-                         @ModelAttribute("employee") @RequestBody Book book,
-                         @ModelAttribute("t") @RequestBody Author author) {
+    public String update(Model model, @ModelAttribute("employee") @RequestBody Book book) {
 
         bookService.update(book);
-        authorService.update(book.getAuthor());
         return "redirect:/ui/book/get/all";
     }
 
@@ -64,28 +68,19 @@ public class BookUIController {
     public String showNewForm(Model model) {
         Book book = new Book();
         model.addAttribute("books", book);
+
+        List<Author> authorListId = authorService.getAll();
+        model.addAttribute("publishingHouseList", authorListId);
+
+        List<PublishingHouse> publishingHouseList = publishingHouseService.getAll();
+        model.addAttribute("publishingHouseList", publishingHouseList);
         return "book/newBook";
     }
 
     @PostMapping("/add")
-    public String add(Model model, @ModelAttribute("employee") @RequestBody Book book) {
-        String name = book.getName();
-        int useBook = book.getUseBook();
-        String yearIssue = book.getYearIssue();
-        int amount = book.getAmount();
-        int price = book.getPrice();
-        String edition = book.getEdition();
-        int penaltyLoss = book.getPenaltyLoss();
-        book.setAuthor(authorService.getAll().get(Integer.parseInt(book.getAuthor().getId()) - 1));
-        /*List<Plane> planes = planeService.getAll();*/
-
-        if (name != null && name.length() > 0 && edition != null && edition.length() > 0
-                && yearIssue != null && yearIssue.length() > 0
-                && useBook > 0 && amount > 0 && price > 0 && penaltyLoss > 0) {
-            model.addAttribute("books", bookService.create(book));
-            return "redirect:/ui/book/get/all";
-        }
-        return "redirect:/ui/book/showNewForm";
+    public String add(Model model, @ModelAttribute("book") @RequestBody Book book) {
+        model.addAttribute("book", bookService.create(book));
+        return "redirect:/ui/book/get/all";
     }
 
     @RequestMapping("/delete/{id}")

@@ -1,22 +1,27 @@
 package edu.coursework.library.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Document(collection = "readingRoom")
 public class ReadingRoom {
-
+    @Id
     private String id;
 
+    private int numberOfSeats;
     private int number;
-    private int amount;
-    private Person duty;
-    private ArrayList<Reader> readers;
-    private Catalog catalog;
+    private List<Catalog> catalogList;
 
-    private LocalDateTime created_at;
-    private LocalDateTime modified_at;
+    private Date createdAt;
+    private Date modifiedAt;
     private String description;
 }

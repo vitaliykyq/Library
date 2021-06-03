@@ -20,32 +20,32 @@ import java.util.List;
 public class AuthorRestController {
 
     @Autowired
-    AuthorServiceImpl service;
+    AuthorServiceImpl authorService;
 
     @GetMapping("/get/all")
     public List<Author> getPlane(){
-        return service.getAll() ;
+        return authorService.getAll() ;
     }
 
     @GetMapping("/get/{id}")
     public Author getById(@PathVariable("id") String id){
-        Author byId = service.getById(id);
+        Author byId = authorService.getById(id);
         return byId;
     }
 
     @GetMapping("/delete/{id}")
     public Author deleteById(@PathVariable("id") String id){
-        return service.delete(id);
+        return authorService.delete(id);
     }
 
     @PostMapping ("/create/")
     public Author create(@RequestBody Author author){
-        return service.create(author);
+        return authorService.create(author);
     }
 
     @PostMapping ("/update/")
     public Author update(@RequestBody Author author){
-        return service.update(author);
+        return authorService.update(author);
     }
 
 }
