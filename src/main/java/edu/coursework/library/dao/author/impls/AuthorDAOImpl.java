@@ -1,12 +1,12 @@
-package edu.coursework.library.dao.author.impls;
+/*package edu.coursework.library.dao.author.impls;
 
-/*
+*//*
     @author:    Vitaliy
     @project:    Library
     @class:    BookDAOImpl
     @version:    1.0.0
     @since:    14.04.2021
-*/
+*//*
 
 import edu.coursework.library.dao.author.interfaces.IAuthorDAO;
 import edu.coursework.library.data.FakeData;
@@ -23,7 +23,7 @@ public class AuthorDAOImpl implements IAuthorDAO {
     @Autowired
     FakeData fakeData;
 
-    /*@Override
+    *//*@Override
     public Administration getById(String id) {
         return null;
     }
@@ -51,7 +51,7 @@ public class AuthorDAOImpl implements IAuthorDAO {
     @Override
     public List<Administration> getAll() {
         return fakeData.getAdministrations();
-    }*/
+    }*//*
 
     @Override
     public Author getById(String id) {
@@ -98,4 +98,4 @@ public class AuthorDAOImpl implements IAuthorDAO {
     public List<Author> getAll() {
         return fakeData.getAuthorList();
     }
-}
+}*/

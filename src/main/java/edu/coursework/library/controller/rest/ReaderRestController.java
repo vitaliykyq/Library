@@ -29,6 +29,36 @@ public class ReaderRestController {
         return readerService.getAll() ;
     }
 
+    @GetMapping("/get/withFine")
+    public Object getReadersWithFine(){
+        return readerService.findReadersWithFine() ;
+    }
+
+    @GetMapping("/get/readersInReadingRooms/number}")
+    public Object findReadersInReadingRooms(@PathVariable("number") int number){
+        return readerService.findReadersInReadingRooms(number) ;
+    }
+
+    @GetMapping("/get/amountOfReadersInReadingRooms")
+    public Object getReadersWitfindAmountOfReadersInReadingRoomshFine(){
+        return readerService.findAmountOfReadersInReadingRooms() ;
+    }
+
+    @GetMapping("/get/readersOfFaculty/{faculty}")
+    public Object findReadersOfFaculty(@PathVariable("faculty") String faculty){
+        return readerService.findReadersOfFaculty(faculty) ;
+    }
+
+    @GetMapping("/get/readersOfCourse/{course}")
+    public Object findReadersOfCourse(@PathVariable("course") int course){
+        return readerService.findReadersOfCourse(course) ;
+    }
+
+    @GetMapping("/get/readersOfGroup/{course}")
+    public Object findReadersOfGroup(@PathVariable("group") String group){
+        return readerService.findReadersOfGroup(group) ;
+    }
+
     @GetMapping("/get/{id}")
     public Reader getById(@PathVariable("id") String id){ return readerService.getById(id); }
 

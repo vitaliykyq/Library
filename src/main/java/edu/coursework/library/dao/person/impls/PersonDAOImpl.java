@@ -1,12 +1,15 @@
+/*
 package edu.coursework.library.dao.person.impls;
 
+*/
 /*
     @author:    Vitaliy
     @project:    Library
     @class:    PersonDAOImpl
     @version:    1.0.0 
     @since:    14.04.2021     
-*/
+*//*
+
 
 import edu.coursework.library.dao.person.interfaces.IPersonDAO;
 import edu.coursework.library.data.FakeData;
@@ -23,7 +26,8 @@ public class PersonDAOImpl implements IPersonDAO {
     @Autowired
     FakeData fakeData;
 
-    /*@Override
+    */
+/*@Override
     public Administration getById(String id) {
         return null;
     }
@@ -51,9 +55,11 @@ public class PersonDAOImpl implements IPersonDAO {
     @Override
     public List<Administration> getAll() {
         return fakeData.getAdministrations();
-    }*/
+    }*//*
 
-    /*@Override
+
+    */
+/*@Override
     public Person getById(String id) {
         return this.getAll().stream()
                 .filter(services -> services.getId().equals(id))
@@ -98,5 +104,7 @@ public class PersonDAOImpl implements IPersonDAO {
     @Override
     public List<Person> getAll() {
         return fakeData.getServices();
-    }*/
+    }*//*
+
 }
+*/

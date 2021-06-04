@@ -1,12 +1,15 @@
+/*
 package edu.coursework.library.data;
 
+*/
 /*
     @author:    Vitaliy
     @project:    Library
     @class:    FakeData
     @version:    1.0.0
     @since:    15.04.2021
-*/
+*//*
+
 
 import edu.coursework.library.model.Author;
 import edu.coursework.library.model.Book;
@@ -80,3 +83,4 @@ public class FakeData {
         this.bookList = bookList;
     }
 }
+*/

@@ -11,17 +11,23 @@ package edu.coursework.library.service.cardIndex.impls;
 import edu.coursework.library.model.CardIndex;
 import edu.coursework.library.repository.CardIndexRepository;
 import edu.coursework.library.service.cardIndex.interfaces.ICardIndexService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.aggregation.Aggregation;
+import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class CardIndexServiceImpl implements ICardIndexService {
 
     @Autowired
     CardIndexRepository repository;
+    private final MongoTemplate mongoTemplate;
 
     @Override
     public CardIndex getById(String id) {
@@ -56,4 +62,5 @@ public class CardIndexServiceImpl implements ICardIndexService {
 
         return repository.findAll();
     }
+
 }

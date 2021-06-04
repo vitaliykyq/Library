@@ -24,29 +24,43 @@ public class BookRestController {
     BookServiceImpl bookService;
 
     @GetMapping("/get/all")
-    public List<Book> getPlane(){
-        return bookService.getAll() ;
+    public List<Book> getPlane() {
+        return bookService.getAll();
     }
 
     @GetMapping("/get/{id}")
-    public Book getById(@PathVariable("id") String id){
+    public Book getById(@PathVariable("id") String id) {
         Book byId = bookService.getById(id);
         return byId;
     }
 
     @GetMapping("/delete/{id}")
-    public Book deleteById(@PathVariable("id") String id){
+    public Book deleteById(@PathVariable("id") String id) {
         return bookService.delete(id);
     }
 
-    @PostMapping ("/create/")
-    public Book create(@RequestBody Book book){
+    @PostMapping("/create/")
+    public Book create(@RequestBody Book book) {
         return bookService.create(book);
     }
 
-    @PostMapping ("/update/")
-    public Book update(@RequestBody Book book){
+    @PostMapping("/update/")
+    public Book update(@RequestBody Book book) {
         return bookService.update(book);
     }
 
+    @GetMapping("/get/amountOfBookCopies")
+    public Object getNumOfSameBookInLibrary() {
+        return bookService.getNumOfSameBookInLibrary();
+    }
+
+    @GetMapping("/get/getNumOfBooksInLibrary")
+    public Object getNumOfBooksInLibrary() {
+        return bookService.getNumOfBooksInLibrary();
+    }
+
+    @GetMapping("/get/getNumOfBooksInCartoteka")
+    public Object getNumOfBooksInCartoteka() {
+        return bookService.getNumOfBooksInCartoteka();
+    }
 }

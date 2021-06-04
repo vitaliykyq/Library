@@ -19,7 +19,7 @@ public class CardIndex {
 
     private String name;
     private String genre;
-    private List<Book> bookList;
+
 
     private Date createdAt;
     private Date modifiedAt;

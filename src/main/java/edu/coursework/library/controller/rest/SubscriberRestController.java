@@ -9,6 +9,7 @@ package edu.coursework.library.controller.rest;
 */
 
 import edu.coursework.library.model.Subscriber;
+import edu.coursework.library.model.TakenBook;
 import edu.coursework.library.service.subscriber.impls.SubscriberServiceImpl;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,10 +38,14 @@ public class SubscriberRestController {
         return subscriberService.delete(id);
     }
 
-    @PostMapping("/create/")
-    public Subscriber create(@RequestBody Subscriber subscriber){ return subscriberService.create(subscriber); }
+
+    @PostMapping ("/create/")
+    public Subscriber create(@RequestBody Subscriber goods){
+        return subscriberService.create(goods);
+    }
 
     @PostMapping ("/update/")
-    public Subscriber update(@RequestBody Subscriber subscriber){ return subscriberService.update(subscriber); }
-
+    public Subscriber update(@RequestBody Subscriber goods){
+        return subscriberService.update(goods);
+    }
 }

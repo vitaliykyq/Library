@@ -1,12 +1,15 @@
+/*
 package edu.coursework.library.dao.person.impls;
 
+*/
 /*
     @author:    Vitaliy
     @project:    Library
     @class:    BookDAOImpl
     @version:    1.0.0
     @since:    14.04.2021
-*/
+*//*
+
 
 import edu.coursework.library.dao.person.interfaces.IBookDAO;
 import edu.coursework.library.data.FakeData;
@@ -23,7 +26,8 @@ public class BookDAOImpl implements IBookDAO {
     @Autowired
     FakeData fakeData;
 
-    /*@Override
+    */
+/*@Override
     public Administration getById(String id) {
         return null;
     }
@@ -51,7 +55,8 @@ public class BookDAOImpl implements IBookDAO {
     @Override
     public List<Administration> getAll() {
         return fakeData.getAdministrations();
-    }*/
+    }*//*
+
 
     @Override
     public Book getById(String id) {
@@ -103,3 +108,4 @@ public class BookDAOImpl implements IBookDAO {
         return fakeData.getBookList();
     }
 }
+*/

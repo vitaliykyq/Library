@@ -37,10 +37,14 @@ public class TakenBookRestController {
         return person.delete(id);
     }
 
-    @PostMapping("/create/")
-    public TakenBook create(@RequestBody TakenBook takenBook){ return person.create(takenBook); }
+    @PostMapping ("/create/")
+    public TakenBook create(@RequestBody TakenBook goods){
+        return person.create(goods);
+    }
 
     @PostMapping ("/update/")
-    public TakenBook update(@RequestBody TakenBook takenBook){ return person.update(takenBook); }
+    public TakenBook update(@RequestBody TakenBook goods){
+        return person.update(goods);
+    }
 
 }

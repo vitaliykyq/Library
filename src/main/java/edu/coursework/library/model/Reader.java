@@ -20,6 +20,7 @@ public class Reader {
     private Person person;
     private String becameReader;
     private List<TakenBook> takenBookList;
+    private ReadingRoom readingRoom;
 
     private Date createdAt;
     private Date modifiedAt;

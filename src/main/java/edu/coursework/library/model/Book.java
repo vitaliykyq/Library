@@ -22,6 +22,7 @@ public class Book {
     private String dateOfArrival;
     private double price;
     private PublishingHouse publishingHouse;
+    private CardIndex cardIndex;
 
     private Date createdAt;
     private Date modifiedAt;
