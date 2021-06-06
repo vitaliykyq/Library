@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/services")
+@RequestMapping("api/subscriber")
 public class SubscriberRestController {
 
     @Autowired

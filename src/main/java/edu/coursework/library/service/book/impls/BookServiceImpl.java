@@ -1,12 +1,5 @@
 package edu.coursework.library.service.book.impls;
 
-/*
-    @author:    Bogdan
-    @project:    Enterprises 
-    @class:    CivilServiceImpl 
-    @version:    1.0.0 
-    @since:    15.04.2021     
-*/
 
 import edu.coursework.library.model.Book;
 import edu.coursework.library.repository.BookRepository;
