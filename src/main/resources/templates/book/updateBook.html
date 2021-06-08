@@ -10,41 +10,36 @@
         <h1>UPDATE BOOK</h1>
     </div>
     <div class="updateForm" style="margin-bottom: 80px; margin-right: 700px;">
-        <form id="dataMain" action="#" th:action="@{/ui/book/update}" th:object="${books}"
+        <form id="dataMain" action="#" th:action="@{/ui/book/update}" th:object="${book}"
               method="POST">
-            <label for="num1">Id</label>
-            <input id="num1" type="number" readonly th:field="*{id}"/>
-            <label for="num2">Name</label>
-            <input id="num2" th:field="*{name}">
-            <label for="num3">UseBook</label>
-            <input type="number"  id="num3" th:field="*{useBook}">
-            <label for="num4">Author</label>
-            <!-- -->
-            <input id="num4" class="checkBox" type="checkbox">
-                <div class="updateForm uppMenu" style="margin-bottom: 150px">
-                    <h1>Author</h1>
-                        <label for="num4_1">Id</label>
-                        <input id="num4_1" type="number" readonly th:field="*{author.id}"/>
-                        <label for="num4_2">Name</label>
-                        <input id="num4_2" th:field="*{author.name}">
-                        <label for="num4_3">Birth</label>
-                        <input id="num4_3" th:field="*{author.birth}">
-                        <label for="num4_4">Death</label>
-                        <input id="num4_4" th:field="*{author.death}">
-                        <label for="num4_5">Country</label>
-                        <input id="num4_5" th:field="*{author.country}">
-                </div>
-            <!-- -->
-            <label for="num5">Amount</label>
-            <input id="num5" type="number" th:field="*{amount}">
+            <label for="num0">Id</label>
+            <input id="num0" type="number" readonly th:field="*{id}"/>
+            <label for="num1">Name</label>
+            <input id="num1" th:field="*{name}"  required>
+            <label for="num2">Author</label>
+            <select id="num2" th:field="*{author}" onclick="checkedInput()">
+                <option th:each="authorListId: ${authorListId}"
+                        th:value="${authorListId.id}" th:text="${authorListId.name}">
+                </option>
+            </select>
+            <label for="num4">NumberOfPages</label>
+            <input id="num4" type="number" th:field="*{numberOfPages}" min="0" required>
+            <label for="num5">DateOfArrival</label>
+            <input id="num5" th:field="*{dateOfArrival}" min="0" required>
             <label for="num6">Price</label>
-            <input id="num6" type="number" th:field="*{price}">
-            <label for="num7">Edition</label>
-            <input id="num7" th:field="*{edition}">
-            <label for="num8">PenaltyLoss</label>
-            <input id="num8" type="number" th:field="*{penaltyLoss}">
-            <label for="num9">YearIssue</label>
-            <input id="num9" th:field="*{YearIssue}">
+            <input id="num6" th:field="*{price}" required>
+            <label for="num7">PublishingHouse</label>
+            <select id="num7" th:field="*{publishingHouse}" onclick="checkedInput()">
+                <option th:each="publishingHouseListId: ${publishingHouseListId}"
+                        th:value="${publishingHouseListId.id}" th:text="${publishingHouseListId.name}">
+                </option>
+            </select>
+            <label for="num8">CardIndex</label>
+            <select id="num8" th:field="*{cardIndex}" onclick="checkedInput()">
+                <option th:each="cardIndexListId: ${cardIndexListId}"
+                        th:value="${cardIndexListId.id}" th:text="${cardIndexListId.name}">
+                </option>
+            </select>
             <button form="dataMain" type="submit" class="updateBtn" style="transition: 0.5s; padding: 0; font-size: 0.8em">DONE</button>
         </form>
     </div>

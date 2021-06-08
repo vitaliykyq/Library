@@ -14,25 +14,30 @@
           method="POST">
         <label for="num1">Name</label>
         <input id="num1" th:field="*{name}"  required>
-        <label for="num2">UseBook</label>
-        <input id="num2" th:field="*{useBook}" type="number" min="0" required>
-        <label for="num3">Author</label>
-        <div>
-            <input id="num3" th:field="*{author.id}"  required>
-            <a th:href="@{/ui/author/showNewForm}">
-                <button type="submit" class="newBtn" style="transition: 0.5s; padding: 0; font-size: 0.8em">NEW</button>
-            </a>
-        </div>
-        <label for="num4">Amount</label>
-        <input id="num4" type="number" th:field="*{amount}" min="0" required>
-        <label for="num5">Price</label>
-        <input id="num5" type="number" th:field="*{price}" min="0" required>
-        <label for="num6">Edition</label>
-        <input id="num6" th:field="*{edition}" required>
-        <label for="num7">PenaltyLoss</label>
-        <input id="num7" type="number" th:field="*{penaltyLoss}" min="0" required>
-        <label for="num8">YearIssue</label>
-        <input id="num8" th:field="*{yearIssue}" required>
+        <label for="num2">Author</label>
+        <select id="num2" th:field="*{author}" onclick="checkedInput()">
+            <option th:each="authorListId: ${authorListId}"
+                                th:value="${authorListId.id}" th:text="${authorListId.name}">
+            </option>
+        </select>
+        <label for="num4">NumberOfPages</label>
+        <input id="num4" type="number" th:field="*{numberOfPages}" min="0" required>
+        <label for="num5">DateOfArrival</label>
+        <input id="num5" th:field="*{dateOfArrival}" min="0" required>
+        <label for="num6">Price</label>
+        <input id="num6" th:field="*{price}" required>
+        <label for="num7">PublishingHouse</label>
+        <select id="num7" th:field="*{publishingHouse}" onclick="checkedInput()">
+            <option th:each="publishingHouseListId: ${publishingHouseListId}"
+                    th:value="${publishingHouseListId.id}" th:text="${publishingHouseListId.name}">
+            </option>
+        </select>
+        <label for="num8">CardIndex</label>
+        <select id="num8" th:field="*{cardIndex}" onclick="checkedInput()">
+            <option th:each="cardIndexListId: ${cardIndexListId}"
+                    th:value="${cardIndexListId.id}" th:text="${cardIndexListId.name}">
+            </option>
+        </select>
         <button type="submit" class="newBtn" style="transition: 0.5s; padding: 0; font-size: 0.8em">SAVE</button>
     </form>
 </div>

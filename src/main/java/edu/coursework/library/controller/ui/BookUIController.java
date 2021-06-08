@@ -10,9 +10,11 @@ package edu.coursework.library.controller.ui;
 
 import edu.coursework.library.model.Author;
 import edu.coursework.library.model.Book;
+import edu.coursework.library.model.CardIndex;
 import edu.coursework.library.model.PublishingHouse;
 import edu.coursework.library.service.author.impls.AuthorServiceImpl;
 import edu.coursework.library.service.book.impls.BookServiceImpl;
+import edu.coursework.library.service.cardIndex.impls.CardIndexServiceImpl;
 import edu.coursework.library.service.publishingHouse.impls.PublishingHouseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,6 +37,9 @@ public class BookUIController {
     @Autowired
     PublishingHouseServiceImpl publishingHouseService;
 
+    @Autowired
+    CardIndexServiceImpl cardIndexService;
+
     @RequestMapping("/get/all")
     public String showAll(Model model){
 
@@ -50,10 +55,13 @@ public class BookUIController {
         model.addAttribute("book", book);
 
         List<Author> authorListId = authorService.getAll();
-        model.addAttribute("publishingHouseList", authorListId);
+        model.addAttribute("authorListId", authorListId);
 
-        List<PublishingHouse> publishingHouseList = publishingHouseService.getAll();
-        model.addAttribute("publishingHouseList", publishingHouseList);
+        List<PublishingHouse> publishingHouseListId = publishingHouseService.getAll();
+        model.addAttribute("publishingHouseListId", publishingHouseListId);
+
+        List<CardIndex> cardIndexListId = cardIndexService.getAll();
+        model.addAttribute("cardIndexListId", cardIndexListId);
         return "book/updateBook";
     }
 
@@ -70,10 +78,13 @@ public class BookUIController {
         model.addAttribute("books", book);
 
         List<Author> authorListId = authorService.getAll();
-        model.addAttribute("publishingHouseList", authorListId);
+        model.addAttribute("authorListId", authorListId);
 
-        List<PublishingHouse> publishingHouseList = publishingHouseService.getAll();
-        model.addAttribute("publishingHouseList", publishingHouseList);
+        List<PublishingHouse> publishingHouseListId = publishingHouseService.getAll();
+        model.addAttribute("publishingHouseListId", publishingHouseListId);
+
+        List<CardIndex> cardIndexListId = cardIndexService.getAll();
+        model.addAttribute("cardIndexListId", cardIndexListId);
         return "book/newBook";
     }
 
