@@ -18,7 +18,7 @@ public class Person {
 
     private String name;
     private String surname;
-    private int age;
+    private int year;
     private String gender;
     private EducationalInstitution educationalInstitution;
 

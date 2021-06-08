@@ -164,7 +164,8 @@ a.containerButton:hover{
     padding: 10px;
     border-bottom:2px solid white;
 }
-.updateForm form input{
+.updateForm form input,
+.updateForm form select{
     font-size: 30px;
     background: #98a6c0;
     border-radius: 15px;
@@ -173,6 +174,10 @@ a.containerButton:hover{
     box-shadow: none;
     transition-property: box-shadow;
     transition-duration: .5s;
+}
+
+.updateForm form select{
+    float: left;
 }
 
 .updateForm form input:focus{
