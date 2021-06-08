@@ -2,49 +2,29 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Update Book</title>
+    <title>Update PublishingHouse</title>
     <link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
     <div class="segment">
-        <h1>UPDATE BOOK</h1>
+        <h1>UPDATE PUBLISHINGHOUSE</h1>
     </div>
     <div class="updateForm" style="margin-bottom: 80px; margin-right: 700px;">
-        <form id="dataMain" action="#" th:action="@{/ui/book/update}" th:object="${book}"
+        <form id="dataMain" action="#" th:action="@{/ui/publishingHouse/update}" th:object="${publishingHouse}"
               method="POST">
             <label for="num0">Id</label>
             <input id="num0" type="number" readonly th:field="*{id}"/>
             <label for="num1">Name</label>
             <input id="num1" th:field="*{name}"  required>
-            <label for="num2">Author</label>
-            <select id="num2" th:field="*{author}" onclick="checkedInput()">
-                <option th:each="authorListId: ${authorListId}"
-                        th:value="${authorListId.id}" th:text="${authorListId.name}">
-                </option>
-            </select>
-            <label for="num4">NumberOfPages</label>
-            <input id="num4" type="number" th:field="*{numberOfPages}" min="0" required>
-            <label for="num5">DateOfArrival</label>
-            <input id="num5" th:field="*{dateOfArrival}" min="0" required>
-            <label for="num6">Price</label>
-            <input id="num6" th:field="*{price}" required>
-            <label for="num7">PublishingHouse</label>
-            <select id="num7" th:field="*{publishingHouse}" onclick="checkedInput()">
-                <option th:each="publishingHouseListId: ${publishingHouseListId}"
-                        th:value="${publishingHouseListId.id}" th:text="${publishingHouseListId.name}">
-                </option>
-            </select>
-            <label for="num8">CardIndex</label>
-            <select id="num8" th:field="*{cardIndex}" onclick="checkedInput()">
-                <option th:each="cardIndexListId: ${cardIndexListId}"
-                        th:value="${cardIndexListId.id}" th:text="${cardIndexListId.name}">
-                </option>
-            </select>
+            <label for="num2">DateOfCooperation</label>
+            <input id="num2" type="number" th:field="*{dateOfCooperation}" min="0" required>
+            <label for="num3">Address</label>
+            <input id="num3" th:field="*{address}" min="0" required>
             <button form="dataMain" type="submit" class="updateBtn" style="transition: 0.5s; padding: 0; font-size: 0.8em">DONE</button>
         </form>
     </div>
 
-    <a th:href="@{/ui/book/get/all}" style = "margin-right: 1050px;">
+    <a th:href="@{/ui/publishingHouse/get/all}" style = "margin-right: 1050px;">
         <button class="backBtn" style="padding: 0">Back</button>
     </a>
 </body>

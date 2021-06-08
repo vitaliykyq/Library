@@ -2,47 +2,97 @@
 <html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Authors List</title>
+    <title>Author List</title>
+
     <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/animation.css}" rel="stylesheet">
+    <link href="../css/animation.css" rel="stylesheet">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 <body>
-    <div style="position: absolute; left: 50%; transform: translate(-50%, 0)">
-        <table>
-            <thead>
-                <tr>
-                    <th>Id</th>
+
+<div id="blockMessage">
+    Successfully copied
+</div>
+
+<!-- -->
+
+<div class="contentMain">
+    <div class="container">
+        <div class="tbl-header">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                <tr class="title">
                     <th>Name</th>
                     <th>Birth</th>
                     <th>Death</th>
-                    <th>CreatedAt</th>
-                    <th>ModifiedAt</th>
-                    <th class="options" colspan="2">OPTIONS</th>
+                    <th>Country</th>
                 </tr>
-            </thead>
-            <tbody>
-            <tr th:each="author: ${authors}">
-                <td th:text="${author.id}">id</td>
-                <td th:text="${author.name}">Person</td>
-                <td th:text="${author.birth}">Group</td>
-                <td th:text="${author.death}">Course</td>
-                <td th:text="${author.created_at}">created_at</td>
-                <td th:text="${author.modified_at}">modified_at</td>
-                <td>
-                    <a th:href="@{/ui/author/delete/{id}(id=${author.id})}">
-                        <button class="btn delBtn" style="transition: 0.5s; padding: 0">Delete</button>
-                    </a>
-                    <a th:href="@{/ui/author/showUpdateForm/{id}(id=${author.id})}">
-                        <button class="btn uppBtn" style="transition: 0.5s; padding: 0">Update</button>
-                    </a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <a th:href = "@{/ui/author/showNewForm}">
-            <button class="btn addBtn" style="transition: 0.5s; padding: 0">
-                <img src="http://pngimg.com/uploads/notebook/notebook_PNG19198.png" width="60">
-            </button>
-        </a>
+                </thead>
+            </table>
+        </div>
+        <div class="tbl-content">
+            <table cellpadding="0" cellspacing="0" border="0" onmouseleave="checkLeave()">
+                <tbody>
+
+                <tr th:each="author: ${authorList}" onmouseenter='checkHover(obj)' onclick='checkClick(obj, this)'>
+                    <td th:text="${author.name}"></td>
+                    <td th:text="${author.birth}"></td>
+                    <td th:text="${author.death}"></td>
+                    <td th:text="${author.country}"></td>
+                    <td class="options">
+                        <a  th:href="@{/ui/author/delete/{id}(id=${author.id})}">
+                            <button class="first">Delete</button>
+                        </a>
+                        <a th:href="@{/ui/author/showUpdateForm/{id}(id=${author.id})}">
+                            <button class="last">Edit</button>
+                        </a>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
     </div>
+
+    <br>
+
+    <div class="controlElementFake"></div>
+
+
+    <div class="controlElement">
+
+        <!-- FakeData -->
+
+        <table>
+            <tr>
+                <td>Id</td>
+                <td id = "infoId" onclick="copyID()"></td>
+            </tr>
+            <tr>
+                <td>Create At</td>
+                <td id = "infoCreateAt"></td>
+            </tr>
+            <tr>
+                <td>Update At&emsp;</td>
+                <td id="infoUpdateAt"></td>
+            </tr>
+        </table>
+    </div>
+
+    <br>
+
+    <div style="text-align: center">
+        <a th:href = "@{/ui/author/showNewForm}" class="containerButton">Add</a>
+    </div>
+</div>
 </body>
+<script src="../../../../../../../../Desktop/Архив/js/main.js"></script>
+<script src="../../../../../../../../Desktop/Архив/js/FakeData.js"></script>
+<script src="../../../../../../../../Desktop/Архив/js/TableJQuery.js"></script>
+<script src="../../../../../../../../Desktop/Архив/js/animated.js"></script>
+<script src="../../../../../../../../Desktop/Архив/js/modalWindow.js"></script>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Book List</title>
+  <title>Reader List</title>
 
   <link th:href="@{/css/style.css}" rel="stylesheet">
   <link th:href="@{/css/animation.css}" rel="stylesheet">
@@ -26,14 +26,10 @@
       <table cellpadding="0" cellspacing="0" border="0">
         <thead>
         <tr class="title">
-          <th>Name</th>
-          <th>Author</th>
-          <th>Number pages</th>
-          <th>Genre</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Purchase</th>
-          <th>Language</th>
+          <th>Person</th>
+          <th>BecameReader</th>
+          <th>TakenBookList</th>
+          <th>ReadingRoom</th>
         </tr>
         </thead>
       </table>
@@ -42,19 +38,22 @@
       <table cellpadding="0" cellspacing="0" border="0" onmouseleave="checkLeave()">
         <tbody>
 
-        <tr th:each="book: ${bookList}" onmouseenter='checkHover(obj)' onclick='checkClick(obj, this)'>
-          <td th:text="${book.name}"></td>
-          <td th:text="${book.author.name}"></td>
-          <td th:text="${book.numberOfPages}"></td>
-          <td th:text="${book.dateOfArrival}"></td>
-          <td th:text="${book.price}"></td>
-          <td th:text="${book.publishingHouse.name}"></td>
-          <td th:text="${book.cardIndex.name}"></td>
+        <tr th:each="reader: ${readerList}" onmouseenter='checkHover(obj)' onclick='checkClick(obj, this)'>
+          <td th:text="${reader.person.name}"></td>
+          <td th:text="${reader.becameReader}"></td>
+          <td>
+            <ol>
+              <li th:each="takenBookListIds: ${reader.takenBookList}">
+                <span th:text="${takenBookListIds.book.name}"></span>
+              </li>
+            </ol>
+          </td>
+          <td th:text="${reader.readingRoom.number}"></td>
           <td class="options">
-            <a  th:href="@{/ui/book/delete/{id}(id=${book.id})}">
+            <a  th:href="@{/ui/reader/delete/{id}(id=${reader.id})}">
               <button class="first">Delete</button>
             </a>
-            <a th:href="@{/ui/book/showUpdateForm/{id}(id=${book.id})}">
+            <a th:href="@{/ui/reader/showUpdateForm/{id}(id=${reader.id})}">
               <button class="last">Edit</button>
             </a>
           </td>
@@ -93,7 +92,7 @@
   <br>
 
   <div style="text-align: center">
-    <a th:href = "@{/ui/book/showNewForm}" class="containerButton">Add</a>
+    <a th:href = "@{/ui/reader/showNewForm}" class="containerButton">Add</a>
   </div>
 </div>
 </body>

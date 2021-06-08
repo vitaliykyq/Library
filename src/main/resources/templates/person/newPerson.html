@@ -16,14 +16,14 @@
         <input id="num1" th:field="*{name}"  required>
         <label for="num2">Surname</label>
         <input id="num2" type="number" th:field="*{surname}" min="0" required>
-        <label for="num3">DateOfArrival</label>
-        <input id="num3" th:field="*{dateOfArrival}" min="0" required>
-        <label for="num4">Price</label>
-        <input id="num4" th:field="*{price}" required>
-        <label for="num5">PublishingHouse</label>
-        <select id="num5" th:field="*{publishingHouse}" onclick="checkedInput()">
-            <option th:each="publishingHouseListId: ${publishingHouseListId}"
-                    th:value="${publishingHouseListId.id}" th:text="${publishingHouseListId.name}">
+        <label for="num3">Age</label>
+        <input id="num3" th:field="*{age}" min="0" required>
+        <label for="num4">Gender</label>
+        <input id="num4" th:field="*{gender}" required>
+        <label for="num5">EducationalInstitution</label>
+        <select id="num5" th:field="*{educationalInstitution}" onclick="checkedInput()">
+            <option th:each="educationalInstitutionListId: ${educationalInstitutionListId}"
+                    th:value="${educationalInstitutionListId.id}" th:text="${educationalInstitutionListId.chair}">
             </option>
         </select>
         <button type="submit" class="newBtn" style="transition: 0.5s; padding: 0; font-size: 0.8em">SAVE</button>

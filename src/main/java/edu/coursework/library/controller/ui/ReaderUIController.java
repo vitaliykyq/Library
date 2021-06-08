@@ -10,9 +10,11 @@ package edu.coursework.library.controller.ui;
 
 import edu.coursework.library.model.Person;
 import edu.coursework.library.model.Reader;
+import edu.coursework.library.model.ReadingRoom;
 import edu.coursework.library.model.TakenBook;
 import edu.coursework.library.service.person.impls.PersonServiceImpl;
 import edu.coursework.library.service.reader.impls.ReaderServiceImpl;
+import edu.coursework.library.service.readingRoom.impls.ReadingRoomServiceImpl;
 import edu.coursework.library.service.takenBook.impls.TakenBookServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,6 +36,9 @@ public class ReaderUIController {
     @Autowired
     TakenBookServiceImpl takenBookService;
 
+    @Autowired
+    ReadingRoomServiceImpl readingRoomService;
+
     @RequestMapping("/get/all")
     public String showAll(Model model){
 
@@ -53,6 +58,9 @@ public class ReaderUIController {
 
         List<TakenBook> takenBookListId = takenBookService.getAll();
         model.addAttribute("takenBookListId", takenBookListId);
+
+        List<ReadingRoom> readingRoomListId = readingRoomService.getAll();
+        model.addAttribute("readingRoomListId", readingRoomListId);
         return "reader/updateReader";
     }
 
@@ -73,6 +81,9 @@ public class ReaderUIController {
 
         List<TakenBook> takenBookListId = takenBookService.getAll();
         model.addAttribute("takenBookListId", takenBookListId);
+
+        List<ReadingRoom> readingRoomListId = readingRoomService.getAll();
+        model.addAttribute("readingRoomListId", readingRoomListId);
         return "reader/newReader";
     }
 
