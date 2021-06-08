@@ -2,15 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Update Book</title>
+    <title>Update Person</title>
     <link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
     <div class="segment">
-        <h1>UPDATE BOOK</h1>
+        <h1>UPDATE PERSON</h1>
     </div>
     <div class="updateForm" style="margin-bottom: 80px; margin-right: 700px;">
-        <form id="dataMain" action="#" th:action="@{/ui/book/update}" th:object="${book}"
+        <form id="dataMain" action="#" th:action="@{/ui/person/update}" th:object="${person}"
               method="POST">
             <label for="num0">Id</label>
             <input id="num0" type="number" readonly th:field="*{id}"/>
@@ -44,7 +44,7 @@
         </form>
     </div>
 
-    <a th:href="@{/ui/book/get/all}" style = "margin-right: 1050px;">
+    <a th:href="@{/ui/person/get/all}" style = "margin-right: 1050px;">
         <button class="backBtn" style="padding: 0">Back</button>
     </a>
 </body>

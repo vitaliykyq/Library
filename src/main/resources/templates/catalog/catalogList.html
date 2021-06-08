@@ -2,7 +2,7 @@
 <html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Book List</title>
+  <title>Catalog List</title>
 
   <link th:href="@{/css/style.css}" rel="stylesheet">
   <link th:href="@{/css/animation.css}" rel="stylesheet">
@@ -28,12 +28,6 @@
         <tr class="title">
           <th>Name</th>
           <th>Author</th>
-          <th>Number pages</th>
-          <th>Genre</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Purchase</th>
-          <th>Language</th>
         </tr>
         </thead>
       </table>
@@ -42,19 +36,20 @@
       <table cellpadding="0" cellspacing="0" border="0" onmouseleave="checkLeave()">
         <tbody>
 
-        <tr th:each="book: ${bookList}" onmouseenter='checkHover(obj)' onclick='checkClick(obj, this)'>
-          <td th:text="${book.name}"></td>
-          <td th:text="${book.author.name}"></td>
-          <td th:text="${book.numberOfPages}"></td>
-          <td th:text="${book.dateOfArrival}"></td>
-          <td th:text="${book.price}"></td>
-          <td th:text="${book.publishingHouse.name}"></td>
-          <td th:text="${book.cardIndex.name}"></td>
+        <tr th:each="catalog: ${catalogList}" onmouseenter='checkHover(obj)' onclick='checkClick(obj, this)'>
+          <td>
+            <ol>
+              <li th:each="cardIndexListIds: ${catalog.cardIndexList}">
+                <span th:text="${cardIndexListIds.name}"></span>
+              </li>
+            </ol>
+          </td>
+          <td th:text="${catalog.number}"></td>
           <td class="options">
-            <a  th:href="@{/ui/book/delete/{id}(id=${book.id})}">
+            <a  th:href="@{/ui/catalog/delete/{id}(id=${catalog.id})}">
               <button class="first">Delete</button>
             </a>
-            <a th:href="@{/ui/book/showUpdateForm/{id}(id=${book.id})}">
+            <a th:href="@{/ui/catalog/showUpdateForm/{id}(id=${catalog.id})}">
               <button class="last">Edit</button>
             </a>
           </td>
@@ -93,7 +88,7 @@
   <br>
 
   <div style="text-align: center">
-    <a th:href = "@{/ui/book/showNewForm}" class="containerButton">Add</a>
+    <a th:href = "@{/ui/catalog/showNewForm}" class="containerButton">Add</a>
   </div>
 </div>
 </body>

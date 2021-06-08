@@ -11,9 +11,11 @@ package edu.coursework.library.controller.ui;
 import edu.coursework.library.model.Author;
 import edu.coursework.library.model.Book;
 import edu.coursework.library.model.BookOrder;
+import edu.coursework.library.model.Reader;
 import edu.coursework.library.service.author.impls.AuthorServiceImpl;
 import edu.coursework.library.service.book.impls.BookServiceImpl;
 import edu.coursework.library.service.bookOrder.impls.BookOrderServiceImpl;
+import edu.coursework.library.service.reader.impls.ReaderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,7 +34,7 @@ public class BookOrderUIController {
     BookServiceImpl bookService;
 
     @Autowired
-    AuthorServiceImpl authorService;
+    ReaderServiceImpl readerService;
 
     @RequestMapping("/get/all")
     public String showAll(Model model){
@@ -51,8 +53,8 @@ public class BookOrderUIController {
         List<Book> bookListId = bookService.getAll();
         model.addAttribute("bookListId", bookListId);
 
-        List<Author> authorListId = authorService.getAll();
-        model.addAttribute("authorListId", authorListId);
+        List<Reader> readerListId = readerService.getAll();
+        model.addAttribute("readerListId", readerListId);
         return "bookOrder/updateBookOrder";
     }
 
@@ -71,8 +73,8 @@ public class BookOrderUIController {
         List<Book> bookListId = bookService.getAll();
         model.addAttribute("bookListId", bookListId);
 
-        List<Author> authorListId = authorService.getAll();
-        model.addAttribute("authorListId", authorListId);
+        List<Reader> readerListId = readerService.getAll();
+        model.addAttribute("readerListId", readerListId);
         return "bookOrder/newBookOrder";
     }
 
