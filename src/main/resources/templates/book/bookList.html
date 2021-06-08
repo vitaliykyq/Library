@@ -43,7 +43,13 @@
       <table cellpadding="0" cellspacing="0" border="0" onmouseleave="checkLeave()">
         <tbody>
 
-        <tr th:each="book: ${bookList}" onmouseenter='checkHover(obj)' onclick='checkClick(obj, this)'>
+        <tr th:each="book: ${bookList}"
+            th:data-id="${bookList}"
+            th:data-Myid="${book.id}"
+            th:data-createdAt="${book.createdAt}"
+            th:data-modifiedAt="${book.modifiedAt}"
+            onmouseenter='checkHover(this)'
+            onclick='checkClick(this)'>
           <td th:text="${book.name}"></td>
           <td th:text="${book.author.name}"></td>
           <td th:text="${book.numberOfPages}"></td>

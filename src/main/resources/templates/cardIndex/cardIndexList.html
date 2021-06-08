@@ -37,7 +37,13 @@
       <table cellpadding="0" cellspacing="0" border="0" onmouseleave="checkLeave()">
         <tbody>
 
-        <tr th:each="cardIndex: ${cardIndexList}" onmouseenter='checkHover(obj)' onclick='checkClick(obj, this)'>
+        <tr th:each="cardIndex: ${cardIndexList}"
+            th:data-id="${cardIndexList}"
+            th:data-Myid="${cardIndex.id}"
+            th:data-createdAt="${cardIndex.createdAt}"
+            th:data-modifiedAt="${cardIndex.modifiedAt}"
+            onmouseenter='checkHover(this)'
+            onclick='checkClick(this)'>
           <td th:text="${cardIndex.name}"></td>
           <td th:text="${cardIndex.genre}"></td>
           <td class="options">

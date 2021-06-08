@@ -16,7 +16,7 @@
             <tr>
                 <td><label for="num2">Book</label></td>
                 <td>
-                    <select id="num2" th:field="*{book}" onclick="checkedInput()">
+                    <select id="num2" th:field="*{book}">
                         <option th:each="bookListId: ${bookListId}"
                                 th:value="${bookListId.id}" th:text="${bookListId.name}">
                         </option>
@@ -25,12 +25,12 @@
             </tr>
             <tr>
                 <td><label for="num4">WhenOrdered</label></td>
-                <td><input id="num4" type="number" th:field="*{whenOrdered}" min="0" required></td>
+                <td><input id="num4" th:field="*{whenOrdered}" min="0" required></td>
             </tr>
             <tr>
                 <td> <label for="num8">Reader</label></td>
                 <td>
-                    <select id="num8" th:field="*{reader}" onclick="checkedInput()">
+                    <select id="num8" th:field="*{reader}">
                         <option th:each="readerListId: ${readerListId}"
                                 th:value="${readerListId.id}" th:text="${readerListId.person.name}">
                         </option>
