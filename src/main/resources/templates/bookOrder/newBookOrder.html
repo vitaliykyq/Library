@@ -7,25 +7,38 @@
 </head>
 <body>
 <div class="segment">
-    <h1>ADD BOOK ORDER</h1>
+    <h1>ADD Book Order</h1>
 </div>
-<div class="updateForm" style="margin-bottom: 150px; margin-right: 700px;">
+<div class="updateForm">
     <form action="#" th:action="@{/ui/bookOrder/add}" th:object="${bookOrder}"
           method="POST">
-        <label for="num2">Book</label>
-        <select id="num2" th:field="*{book}" onclick="checkedInput()">
-            <option th:each="bookListId: ${bookListId}"
+        <table>
+            <tr>
+                <td><label for="num2">Book</label></td>
+                <td>
+                    <select id="num2" th:field="*{book}" onclick="checkedInput()">
+                        <option th:each="bookListId: ${bookListId}"
                                 th:value="${bookListId.id}" th:text="${bookListId.name}">
-            </option>
-        </select>
-        <label for="num4">WhenOrdered</label>
-        <input id="num4" type="number" th:field="*{whenOrdered}" min="0" required>
-        <label for="num8">Reader</label>
-        <select id="num8" th:field="*{reader}" onclick="checkedInput()">
-            <option th:each="readerListId: ${readerListId}"
-                    th:value="${readerListId.id}" th:text="${readerListId.person.name}">
-            </option>
-        </select>
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="num4">WhenOrdered</label></td>
+                <td><input id="num4" type="number" th:field="*{whenOrdered}" min="0" required></td>
+            </tr>
+            <tr>
+                <td> <label for="num8">Reader</label></td>
+                <td>
+                    <select id="num8" th:field="*{reader}" onclick="checkedInput()">
+                        <option th:each="readerListId: ${readerListId}"
+                                th:value="${readerListId.id}" th:text="${readerListId.person.name}">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+
         <button type="submit" class="newBtn" style="transition: 0.5s; padding: 0; font-size: 0.8em">SAVE</button>
     </form>
 </div>
