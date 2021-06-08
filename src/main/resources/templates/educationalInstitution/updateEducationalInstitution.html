@@ -2,32 +2,45 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Update EducationalInstitution</title>
+    <title>Update Educational Institution</title>
     <link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
-    <div class="segment">
-        <h1>UPDATE EDUCATIONALINSTITUTION</h1>
-    </div>
-    <div class="updateForm" style="margin-bottom: 80px; margin-right: 700px;">
-        <form id="dataMain" action="#" th:action="@{/ui/educationalInstitution/update}" th:object="${educationalInstitution}"
-              method="POST">
-            <label for="num0">Id</label>
-            <input id="num0" type="number" readonly th:field="*{id}"/>
-            <label for="num1">Сhair</label>
-            <input id="num1" th:field="*{chair}"  required>
-            <label for="num2">Аaculty</label>
-            <input id="num2" type="number" th:field="*{faculty}" min="0" required>
-            <label for="num3">Сourse</label>
-            <input id="num3" th:field="*{course}" min="0" required>
-            <label for="num4">Пroup</label>
-            <input id="num4" th:field="*{group}" required>
-            <button form="dataMain" type="submit" class="updateBtn" style="transition: 0.5s; padding: 0; font-size: 0.8em">DONE</button>
-        </form>
-    </div>
+<div class="segment">
+    <h1>Update Educational Institution</h1>
+</div>
+<div class="updateForm">
+    <form action="#" th:action="@{/ui/educationalInstitution/update}" th:object="${educationalInstitution}"
+          method="POST">
+        <table>
+            <tr>
+                <td><label for="num0">Id</label></td>
+                <td><input id="num0" th:field="*{id}" readonly required></td>
+            </tr>
+            <tr>
+                <td><label for="num1">Сhair</label></td>
+                <td><input id="num1" th:field="*{chair}"  required></td>
+            </tr>
+            <tr>
+                <td><label for="num2">Faculty</label></td>
+                <td><input id="num2" th:field="*{faculty}" min="0" required></td>
+            </tr>
+            <tr>
+                <td><label for="num3">Сourse</label></td>
+                <td><input id="num3" th:field="*{course}" min="0" required></td>
+            </tr>
+            <tr>
+                <td><label for="num4">Пroup</label></td>
+                <td><input id="num4" th:field="*{group}" required></td>
+            </tr>
+        </table>
 
-    <a th:href="@{/ui/educationalInstitution/get/all}" style = "margin-right: 1050px;">
-        <button class="backBtn" style="padding: 0">Back</button>
-    </a>
+        <button type="submit" class="newBtn" style="transition: 0.5s; padding: 0; font-size: 0.8em">SAVE</button>
+    </form>
+</div>
+
+<a th:href="@{/ui/educationalInstitution/get/all}">
+    <div align="left" style="padding: 0 0 0 80px"><button class="backBtn" style="padding: 0;">Back</button></div>
+</a>
 </body>
 </html>

@@ -6,40 +6,59 @@
     <link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
-    <div class="segment">
-        <h1>UPDATE READER</h1>
-    </div>
-    <div class="updateForm" style="margin-bottom: 80px; margin-right: 700px;">
-        <form id="dataMain" action="#" th:action="@{/ui/reader/update}" th:object="${reader}"
-              method="POST">
-            <label for="num0">Id</label>
-            <input id="num0" type="number" readonly th:field="*{id}"/>
-            <label for="num1">Person</label>
-            <select id="num1" th:field="*{person}" onclick="checkedInput()">
-                <option th:each="personListId: ${personListId}"
-                        th:value="${personListId.id}" th:text="${personListId.name}">
-                </option>
-            </select>
-            <label for="num2">BecameReader</label>
-            <input id="num2" th:field="*{becameReader}">
-            <label for="num3">TakenBookList</label>
-            <select multiple id="num3" th:field="*{takenBookList}" onclick="checkedInput()">
-                <option th:each="takenBookListId: ${takenBookListId}"
-                        th:value="${takenBookListId.id}" th:text="${takenBookListId.book.name}">
-                </option>
-            </select>
-            <label for="num4">ReadingRoom</label>
-            <select id="num4" th:field="*{readingRoom}" onclick="checkedInput()">
-                <option th:each="readingRoomListId: ${readingRoomListId}"
-                        th:value="${readingRoomListId.id}" th:text="${readingRoomListId.number}">
-                </option>
-            </select>
-            <button form="dataMain" type="submit" class="updateBtn" style="transition: 0.5s; padding: 0; font-size: 0.8em">DONE</button>
-        </form>
-    </div>
+<div class="segment">
+    <h1>Update Reader</h1>
+</div>
+<div class="updateForm">
+    <form action="#" th:action="@{/ui/reader/update}" th:object="${reader}"
+          method="POST">
+        <table>
+            <tr>
+                <td><label for="num0">Id</label></td>
+                <td><input id="num0" th:field="*{id}" readonly required></td>
+            </tr>
+            <tr>
+                <td><label for="num1">Person</label></td>
+                <td>
+                    <select id="num1" th:field="*{person}">
+                        <option th:each="personListId: ${personListId}"
+                                th:value="${personListId.id}" th:text="${personListId.name}">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="num2">BecameReader</label></td>
+                <td><input id="num2" th:field="*{becameReader}"></td>
+            </tr>
+            <tr>
+                <td><label for="num3">TakenBookList</label></td>
+                <td>
+                    <select multiple id="num3" th:field="*{takenBookList}" onclick="checkedInput()">
+                        <option th:each="takenBookListId: ${takenBookListId}"
+                                th:value="${takenBookListId.id}" th:text="${takenBookListId.book.name}">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="num4">ReadingRoom</label></td>
+                <td>
+                    <select id="num4" th:field="*{readingRoom}" onclick="checkedInput()">
+                        <option th:each="readingRoomListId: ${readingRoomListId}"
+                                th:value="${readingRoomListId.id}" th:text="${readingRoomListId.number}">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+        </table>
 
-    <a th:href="@{/ui/reader/get/all}" style = "margin-right: 1050px;">
-        <button class="backBtn" style="padding: 0">Back</button>
-    </a>
+        <button type="submit" class="newBtn" style="transition: 0.5s; padding: 0; font-size: 0.8em">SAVE</button>
+    </form>
+</div>
+
+<a th:href="@{/ui/reader/get/all}">
+    <div align="left" style="padding: 0 0 0 80px"><button class="backBtn" style="padding: 0;">Back</button></div>
+</a>
 </body>
 </html>

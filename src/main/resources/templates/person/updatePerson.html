@@ -6,34 +6,57 @@
     <link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
-    <div class="segment">
-        <h1>UPDATE PERSON</h1>
-    </div>
-    <div class="updateForm" style="margin-bottom: 80px; margin-right: 700px;">
-        <form id="dataMain" action="#" th:action="@{/ui/person/update}" th:object="${person}"
-              method="POST">
-            <label for="num0">Id</label>
-            <input id="num0" type="number" readonly th:field="*{id}"/>
-            <label for="num1">Name</label>
-            <input id="num1" th:field="*{name}"  required>
-            <label for="num2">Surname</label>
-            <input id="num2" type="number" th:field="*{surname}" min="0" required>
-            <label for="num3">Year</label>
-            <input id="num3" th:field="*{year}" min="0" required>
-            <label for="num4">Gender</label>
-            <input id="num4" th:field="*{gender}" required>
-            <label for="num5">EducationalInstitution</label>
-            <select id="num5" th:field="*{educationalInstitution}" onclick="checkedInput()">
-                <option th:each="educationalInstitutionListId: ${educationalInstitutionListId}"
-                        th:value="${educationalInstitutionListId.id}" th:text="${educationalInstitutionListId.chair}">
-                </option>
-            </select>
-            <button form="dataMain" type="submit" class="updateBtn" style="transition: 0.5s; padding: 0; font-size: 0.8em">DONE</button>
-        </form>
-    </div>
+<div class="segment">
+    <h1>Update PERSON</h1>
+</div>
+<div class="updateForm">
+    <form action="#" th:action="@{/ui/person/update}" th:object="${person}"
+          method="POST">
+        <table>
+            <tr>
+                <td><label for="num0">Id</label></td>
+                <td><input id="num0" th:field="*{id}" readonly required></td>
+            </tr>
+            <tr>
+                <td><label for="num1">Name</label></td>
+                <td><input id="num1" th:field="*{name}"  required></td>
+            </tr>
+            <tr>
+                <td><label for="num2">Surname</label></td>
+                <td><input id="num2" th:field="*{surname}" min="0" required></td>
+            </tr>
+            <tr>
+                <td><label for="num3">Year</label></td>
+                <td><input id="num3" th:field="*{year}" min="0" required></td>
+            </tr>
+            <tr>
+                <td><label for="num4">Gender</label></td>
+                <td>
+                    <select id="num4" th:field="*{gender}">
+                        <option value="Man">Man</option>
+                        <option value="Woman">Woman</option>
+                        <option value="Else">Else</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="num5">EducationalInstitution</label></td>
+                <td>
+                    <select id="num5" th:field="*{educationalInstitution}" onclick="checkedInput()">
+                        <option th:each="educationalInstitutionListId: ${educationalInstitutionListId}"
+                                th:value="${educationalInstitutionListId.id}" th:text="${educationalInstitutionListId.chair}">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+        </table>
 
-    <a th:href="@{/ui/person/get/all}" style = "margin-right: 1050px;">
-        <button class="backBtn" style="padding: 0">Back</button>
-    </a>
+        <button type="submit" class="newBtn" style="transition: 0.5s; padding: 0; font-size: 0.8em">SAVE</button>
+    </form>
+</div>
+
+<a th:href="@{/ui/person/get/all}">
+    <div align="left" style="padding: 0 0 0 80px"><button class="backBtn" style="padding: 0;">Back</button></div>
+</a>
 </body>
 </html>
