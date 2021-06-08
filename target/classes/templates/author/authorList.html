@@ -6,7 +6,6 @@
 
     <link th:href="@{/css/style.css}" rel="stylesheet">
     <link th:href="@{/css/animation.css}" rel="stylesheet">
-    <link href="../css/animation.css" rel="stylesheet">
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -18,8 +17,6 @@
     Successfully copied
 </div>
 
-<!-- -->
-
 <div class="contentMain">
     <div class="container">
         <div class="tbl-header">
@@ -30,6 +27,7 @@
                     <th>Birth</th>
                     <th>Death</th>
                     <th>Country</th>
+                    <th>Options</th>
                 </tr>
                 </thead>
             </table>
@@ -38,7 +36,14 @@
             <table cellpadding="0" cellspacing="0" border="0" onmouseleave="checkLeave()">
                 <tbody>
 
-                <tr th:each="author: ${authorList}" onmouseenter='checkHover(obj)' onclick='checkClick(obj, this)'>
+                <tr th:each="author: ${authorList}"
+                    th:data-id="${authorList}"
+                    th:data-Myid="${author.id}"
+                    th:data-createdAt="${author.createdAt}"
+                    th:data-modifiedAt="${author.modifiedAt}"
+                    onmouseenter='checkHover(this)'
+                    onclick='checkClick(this)'>
+
                     <td th:text="${author.name}"></td>
                     <td th:text="${author.birth}"></td>
                     <td th:text="${author.death}"></td>
@@ -60,12 +65,7 @@
 
     <br>
 
-    <div class="controlElementFake"></div>
-
-
     <div class="controlElement">
-
-        <!-- FakeData -->
 
         <table>
             <tr>
@@ -89,10 +89,10 @@
         <a th:href = "@{/ui/author/showNewForm}" class="containerButton">Add</a>
     </div>
 </div>
+
+<script type="text/javascript" th:src="@{/js/animated.js}"></script>
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
+<script type="text/javascript" th:src="@{/js/TableJQuery.js}"></script>
+
 </body>
-<script src="../../../../../../../../Desktop/Архив/js/main.js"></script>
-<script src="../../../../../../../../Desktop/Архив/js/FakeData.js"></script>
-<script src="../../../../../../../../Desktop/Архив/js/TableJQuery.js"></script>
-<script src="../../../../../../../../Desktop/Архив/js/animated.js"></script>
-<script src="../../../../../../../../Desktop/Архив/js/modalWindow.js"></script>
 </html>

@@ -117,9 +117,104 @@ body{
     cursor: default !important;
 }
 
+a.containerButton{
+    text-decoration: none;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #5286e3;
+    font-size: 30px;
+    color: #2c3d5e;
+    padding: 15px 40px 10px 30px;
+    border-radius: 0 20px 0 0;
+    box-shadow: inset #173160 -5px 4px 6px;
+    cursor:pointer;
+    transition-property: color;
+    transition-duration: .5s;
+}
 
-.controlElementFake{
-    background: red;
-    height: 20px;
-    width: 20px;
+a.containerButton:hover{
+    color:white;
+    transition: .5s;
+}
+
+.options a{
+    text-decoration: none;
+}
+
+.updateForm{
+    text-align: center;
+}
+
+.updateForm form{
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(43 73 127) 0%, rgb(48 68 106) 100%);
+    padding: 30px 20px 30px 20px;
+    color:white;
+    display: inline-block;
+    font-size: 30px;
+    border-radius:20px;
+    box-shadow: #223251 4px 6px;
+}
+.updateForm form table{
+    border-collapse: collapse;
+}
+
+.updateForm form table td{
+    padding: 10px;
+    border-bottom:2px solid white;
+}
+.updateForm form input{
+    font-size: 30px;
+    background: #98a6c0;
+    border-radius: 15px;
+    padding: 10px;
+    outline: none;
+    box-shadow: none;
+    transition-property: box-shadow;
+    transition-duration: .5s;
+}
+
+.updateForm form input:focus{
+    box-shadow: inset #6849e3 0 0 10px 2px;
+    transition: .5s;
+}
+
+button.newBtn{
+    transition: 0.5s;
+    font-size: 0.8em;
+    padding: 10px !important;
+    margin-top: 20px;
+    background: white;
+    box-shadow: inset #2e4570 0 0 20px 5px;
+    cursor: pointer;
+    transition-duration: .5s;
+    transition-property: box-shadow;
+}
+
+button.newBtn:hover{
+    box-shadow: inset #004f74 0 0 20px 5px;
+    transition: .5s;
+}
+
+button.backBtn{
+    text-decoration: none;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #5286e3;
+    font-size: 30px;
+    color: #2c3d5e;
+    padding: 15px 40px 10px 30px !important;
+    border-radius: 0 20px 0 0;
+    box-shadow: inset #173160 -5px 4px 6px;
+    cursor:pointer;
+    transition-property: color;
+    transition-duration: .5s;
+}
+
+button.backBtn:hover{
+    color:white;
+    transition: .5s;
 }
