@@ -2,7 +2,7 @@
 <html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Book List</title>
+  <title>TakenBook List</title>
 
   <link th:href="@{/css/style.css}" rel="stylesheet">
   <link th:href="@{/css/animation.css}" rel="stylesheet">
@@ -26,14 +26,10 @@
       <table cellpadding="0" cellspacing="0" border="0">
         <thead>
         <tr class="title">
-          <th>Name</th>
-          <th>Author</th>
-          <th>Number pages</th>
-          <th>Genre</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Purchase</th>
-          <th>Language</th>
+          <th>Book</th>
+          <th>WhenTaken</th>
+          <th>UntilWhenTaken</th>
+          <th>Fine</th>
         </tr>
         </thead>
       </table>
@@ -42,19 +38,16 @@
       <table cellpadding="0" cellspacing="0" border="0" onmouseleave="checkLeave()">
         <tbody>
 
-        <tr th:each="book: ${bookList}" onmouseenter='checkHover(obj)' onclick='checkClick(obj, this)'>
-          <td th:text="${book.name}"></td>
-          <td th:text="${book.author.name}"></td>
-          <td th:text="${book.numberOfPages}"></td>
-          <td th:text="${book.dateOfArrival}"></td>
-          <td th:text="${book.price}"></td>
-          <td th:text="${book.publishingHouse.name}"></td>
-          <td th:text="${book.cardIndex.name}"></td>
+        <tr th:each="takenBook: ${takenBookList}" onmouseenter='checkHover(obj)' onclick='checkClick(obj, this)'>
+          <td th:text="${takenBook.book.name}"></td>
+          <td th:text="${takenBook.whenTaken}"></td>
+          <td th:text="${takenBook.untilWhenTaken}"></td>
+          <td th:text="${takenBook.fine.price}"></td>
           <td class="options">
-            <a  th:href="@{/ui/book/delete/{id}(id=${book.id})}">
+            <a  th:href="@{/ui/takenBook/delete/{id}(id=${takenBook.id})}">
               <button class="first">Delete</button>
             </a>
-            <a th:href="@{/ui/book/showUpdateForm/{id}(id=${book.id})}">
+            <a th:href="@{/ui/takenBook/showUpdateForm/{id}(id=${takenBook.id})}">
               <button class="last">Edit</button>
             </a>
           </td>
@@ -93,7 +86,7 @@
   <br>
 
   <div style="text-align: center">
-    <a th:href = "@{/ui/book/showNewForm}" class="containerButton">Add</a>
+    <a th:href = "@{/ui/takenBook/showNewForm}" class="containerButton">Add</a>
   </div>
 </div>
 </body>
