@@ -75,7 +75,7 @@ public class BookUIController {
     @GetMapping("/showNewForm")
     public String showNewForm(Model model) {
         Book book = new Book();
-        model.addAttribute("books", book);
+        model.addAttribute("book", book);
 
         List<Author> authorListId = authorService.getAll();
         model.addAttribute("authorListId", authorListId);

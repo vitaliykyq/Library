@@ -10,14 +10,14 @@
     <h1>ADD AUTHOR</h1>
 </div>
 <div class="updateForm" style="margin-bottom: 150px; margin-right: 700px;">
-    <form action="#" th:action="@{/ui/author/add}" th:object="${authors}"
+    <form action="#" th:action="@{/ui/author/add}" th:object="${author}"
           method="POST">
-        <label for="num2">Name</label>
-        <input id="num2" th:field="*{name}" required>
-        <label for="num3">Birth</label>
-        <input id="num3" th:field="*{birth}"  required>
+        <label for="num1">Name</label>
+        <input id="num1" th:field="*{name}"  required>
+        <label for="num2">Birth</label>
+        <input id="num2" type="number" th:field="*{birth}" min="0" required>
         <label for="num4">Death</label>
-        <input id="num4" th:field="*{death}" required>
+        <input id="num4" th:field="*{death}" min="0" required>
         <label for="num5">Country</label>
         <input id="num5" th:field="*{country}" required>
         <button type="submit" class="newBtn" style="transition: 0.5s; padding: 0; font-size: 0.8em">SAVE</button>
