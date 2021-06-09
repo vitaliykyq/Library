@@ -1,9 +1,9 @@
 package edu.coursework.library.controller.ui;
 
 /*
-    @author:    Bogdan
-    @project:    Enterprises 
-    @class:    CivilUIController 
+    @author:    Vitaliy
+    @project:    Library
+    @class:    BookUIController
     @version:    1.0.0 
     @since:    26.04.2021     
 */

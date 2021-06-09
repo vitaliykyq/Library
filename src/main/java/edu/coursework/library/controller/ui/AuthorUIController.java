@@ -1,8 +1,8 @@
 package edu.coursework.library.controller.ui;
 
 /*
-    @author:    Bogdan
-    @project:    Enterprises 
+    @author:    Vitaliy
+    @project:    Library
     @class:    AuthorUIController
     @version:    1.0.0 
     @since:    26.04.2021     

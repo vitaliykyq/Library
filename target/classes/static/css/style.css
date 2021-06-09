@@ -43,7 +43,7 @@ h1{
 }
 
 body{
-    background: #365999;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(8,114,138,1) 0%, rgb(58 105 176) 100%);
     font-family: 'Roboto', sans-serif;
 }
 

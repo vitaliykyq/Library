@@ -1,5 +1,13 @@
 package edu.coursework.library.model;
 
+/*
+    @author:    vitaliykyq
+    @project:   Library
+    @class:     EducationalInstitution
+    @version:    1.0.0
+    @since:    15.04.2021
+*/
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
